@@ -53,7 +53,7 @@
 
 .application-section {
     padding: 60px 0;
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../assets/images/_56e07e0e-4f57-4d1d-b6a8-39eee4dcb08b.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../assets/images/background.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;

@@ -6,7 +6,7 @@ import {
   faUserCircle, 
   faUserTie 
 } from '@fortawesome/free-solid-svg-icons';
-import backgroundImage from '../../assets/images/_56e07e0e-4f57-4d1d-b6a8-39eee4dcb08b.jpg';
+import backgroundImage from '../../assets/images/background.jpg';
 import '../../styles/Testimonials.css';
 
 const Testimonials = (): React.ReactElement => {

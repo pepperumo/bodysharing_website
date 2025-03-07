@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { faUserPlus, faCalendarAlt, faShieldAlt, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
-import backgroundImage from '../../assets/images/_56e07e0e-4f57-4d1d-b6a8-39eee4dcb08b.jpg';
+import backgroundImage from '../../assets/images/background.jpg';
 import '../../styles/Contact.css';
 import ContactMethod from '../contact/ContactMethod';
 import ContactForm from '../contact/ContactForm';

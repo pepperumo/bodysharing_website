@@ -43,7 +43,7 @@ const Home = (): React.ReactElement => {
         <div 
           className="hero-overlay" 
           style={{ 
-            backgroundImage: `url(${process.env.PUBLIC_URL}/images/_56e07e0e-4f57-4d1d-b6a8-39eee4dcb08b.jpg)`,
+            backgroundImage: `url(${process.env.PUBLIC_URL}/images/background.jpg)`,
             backgroundSize: 'cover',
             backgroundPosition: 'center'
           }}
