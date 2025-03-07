@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faHandshake, faUserShield, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
-import backgroundImage from '../../assets/images/_56e07e0e-4f57-4d1d-b6a8-39eee4dcb08b.jpg';
 
 const Home: React.FC = () => {
   const introSectionRef = useRef<HTMLElement | null>(null);
@@ -41,7 +40,9 @@ const Home: React.FC = () => {
   return (
     <>
       <div className="hero">
-        <div className="hero-overlay" style={{ backgroundImage: `url(${backgroundImage})` }}></div>
+        <div className="hero-overlay" style={{ 
+          backgroundImage: `url(${process.env.PUBLIC_URL}/images/_56e07e0e-4f57-4d1d-b6a8-39eee4dcb08b.jpg)` 
+        }}></div>
         <div className="hero-content">
           <h1 className="hero-title">Welcome to BodySharing</h1>
           <p className="hero-subtitle">Intimate gatherings celebrating consent in Berlin</p>
