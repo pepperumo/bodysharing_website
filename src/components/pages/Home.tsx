@@ -37,13 +37,25 @@ const Home = (): React.ReactElement => {
     };
   }, []);
   
+  // Explicitly create the absolute URL for GitHub Pages
+  const getImageUrl = () => {
+    // For local development
+    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+      return `${process.env.PUBLIC_URL}/images/_56e07e0e-4f57-4d1d-b6a8-39eee4dcb08b.jpg`;
+    }
+    // For GitHub Pages deployment
+    return '/bodysharing_website/images/_56e07e0e-4f57-4d1d-b6a8-39eee4dcb08b.jpg';
+  };
+  
   return (
     <>
       <div className="hero">
         <div 
           className="hero-overlay" 
           style={{ 
-            backgroundImage: `url(${process.env.PUBLIC_URL}/images/_56e07e0e-4f57-4d1d-b6a8-39eee4dcb08b.jpg)` 
+            backgroundImage: `url(${getImageUrl()})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center'
           }}
         ></div>
         <div className="hero-content">
