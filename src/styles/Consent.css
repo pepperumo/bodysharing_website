@@ -1,0 +1,233 @@
+/* Consent Page Styling */
+.consent-card {
+    background-color: var(--light-bg);
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 30px;
+    border-left: 4px solid var(--accent-color);
+}
+
+.principle-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.principle-card {
+    background-color: var(--light-bg);
+    border-radius: 10px;
+    padding: 25px;
+    text-align: center;
+    transition: var(--transition);
+}
+
+.principle-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.principle-icon {
+    font-size: 3rem;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+}
+
+.rules-list li {
+    margin-bottom: 15px;
+    padding-left: 25px;
+    position: relative;
+}
+
+.rules-list li:before {
+    content: "•";
+    color: var(--accent-color);
+    font-size: 1.5rem;
+    position: absolute;
+    left: 0;
+    top: -5px;
+}
+
+.consent-banner {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    padding: 40px;
+    border-radius: 10px;
+    margin: 40px 0;
+    text-align: center;
+}
+
+.consent-banner h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.policy-section {
+    margin-bottom: 60px;
+}
+
+.policy-section .section-title {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+}
+
+.policy-section .section-intro {
+    margin-bottom: 30px;
+}
+
+.rules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.rule-card {
+    background-color: var(--light-bg);
+    border-radius: 10px;
+    padding: 25px;
+    text-align: center;
+}
+
+.rule-icon {
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+}
+
+.age-verification {
+    margin-bottom: 60px;
+}
+
+.verification-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.verification-icon {
+    font-size: 4rem;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+}
+
+.verification-details {
+    text-align: center;
+}
+
+.verification-steps {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.verification-steps li {
+    margin-bottom: 15px;
+}
+
+.verification-steps li i {
+    color: var(--accent-color);
+    margin-right: 10px;
+}
+
+.alert-box {
+    background-color: var(--light-bg);
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.alert-box i {
+    color: var(--accent-color);
+    margin-right: 10px;
+}
+
+.violations {
+    margin-bottom: 60px;
+}
+
+.violations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.violation-level {
+    background-color: var(--light-bg);
+    border-radius: 10px;
+    padding: 25px;
+    text-align: center;
+}
+
+.level-indicator {
+    font-size: 2rem;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+}
+
+.level-1 {
+    background-color: #dff0d8;
+    color: #3e8e41;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.level-2 {
+    background-color: #fcf8e3;
+    color: #8a6d3b;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.level-3 {
+    background-color: #f2dede;
+    color: #a94442;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.level-4 {
+    background-color: #ebccd1;
+    color: #a94442;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.consequences ul {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+}
+
+.consequences ul li {
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 20px;
+}
+
+.consequences ul li:before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .verification-content {
+        flex-direction: column;
+    }
+    
+    .verification-details {
+        margin-top: 20px;
+        text-align: center;
+    }
+    
+    .principle-grid, 
+    .rules-grid, 
+    .violations-grid {
+        grid-template-columns: 1fr;
+    }
+}

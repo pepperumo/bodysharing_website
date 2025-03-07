@@ -1,0 +1,117 @@
+/* Form Elements Styling */
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  color: #e1bee7;
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 12px;
+  background-color: rgba(45, 45, 55, 0.8);
+  color: #ffffff;
+  border: 1px solid #444;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.form-control.error {
+  border-color: #ff6b6b;
+}
+
+.error-message {
+  color: #ff6b6b;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+textarea.form-control {
+  min-height: 150px;
+  resize: vertical;
+}
+
+/* Checkbox styling */
+.checkbox-group {
+  background-color: rgba(30, 30, 40, 0.7);
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.checkbox-wrapper {
+  display: flex;
+  align-items: flex-start;
+}
+
+.checkbox-input {
+  margin-right: 10px;
+  transform: scale(1.2);
+  margin-top: 3px;
+}
+
+.checkbox-label {
+  color: #ffffff;
+  font-size: 14px;
+}
+
+/* Button styles */
+.btn {
+  padding: 14px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  background-color: #9c27b0;
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background-color: #8e24aa;
+}
+
+.btn-secondary {
+  background-color: #444;
+  color: #ffffff;
+}
+
+.btn-secondary:hover {
+  background-color: #555;
+}
+
+.btn-outlined {
+  background-color: transparent;
+  border: 2px solid #9c27b0;
+  color: #9c27b0;
+}
+
+.btn-outlined:hover {
+  background-color: rgba(156, 39, 176, 0.1);
+}
+
+.btn-full-width {
+  width: 100%;
+}
+
+.btn:disabled {
+  background-color: #555;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
