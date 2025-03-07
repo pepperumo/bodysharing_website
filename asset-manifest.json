@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/bodysharing_website/static/css/main.400b8ff1.css",
-    "main.js": "/bodysharing_website/static/js/main.817c3fa7.js",
+    "main.js": "/bodysharing_website/static/js/main.241b0f2f.js",
     "static/js/453.fca4e49f.chunk.js": "/bodysharing_website/static/js/453.fca4e49f.chunk.js",
     "static/media/_56e07e0e-4f57-4d1d-b6a8-39eee4dcb08b.jpg": "/bodysharing_website/static/media/_56e07e0e-4f57-4d1d-b6a8-39eee4dcb08b.f3c5b8cf9e8e8af4a594.jpg",
     "index.html": "/bodysharing_website/index.html",
     "main.400b8ff1.css.map": "/bodysharing_website/static/css/main.400b8ff1.css.map",
-    "main.817c3fa7.js.map": "/bodysharing_website/static/js/main.817c3fa7.js.map",
+    "main.241b0f2f.js.map": "/bodysharing_website/static/js/main.241b0f2f.js.map",
     "453.fca4e49f.chunk.js.map": "/bodysharing_website/static/js/453.fca4e49f.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.400b8ff1.css",
-    "static/js/main.817c3fa7.js"
+    "static/js/main.241b0f2f.js"
   ]
 }
