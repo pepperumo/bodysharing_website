@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faHandshake, faUserShield, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
-import backgroundImage from '../../assets/images/_56e07e0e-4f57-4d1d-b6a8-39eee4dcb08b.jpg';
 
 const Home = (): React.ReactElement => {
   const introSectionRef = useRef<HTMLElement | null>(null);
@@ -44,7 +43,7 @@ const Home = (): React.ReactElement => {
         <div 
           className="hero-overlay" 
           style={{ 
-            backgroundImage: `url(${backgroundImage})`,
+            backgroundImage: `url(${process.env.PUBLIC_URL}/images/_56e07e0e-4f57-4d1d-b6a8-39eee4dcb08b.jpg)`,
             backgroundSize: 'cover',
             backgroundPosition: 'center'
           }}
