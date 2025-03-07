@@ -22,6 +22,13 @@
   font-size: 16px;
 }
 
+/* Style for select dropdown options */
+.form-control option {
+  background-color: rgba(45, 45, 55, 0.95);
+  color: #ffffff;
+  padding: 12px;
+}
+
 .form-control.error {
   border-color: #ff6b6b;
 }
