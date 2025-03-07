@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faHandshake, faUserShield, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
+import backgroundImage from '../../assets/images/_56e07e0e-4f57-4d1d-b6a8-39eee4dcb08b.jpg';
 
 const Home = (): React.ReactElement => {
   const introSectionRef = useRef<HTMLElement | null>(null);
@@ -37,23 +38,13 @@ const Home = (): React.ReactElement => {
     };
   }, []);
   
-  // Explicitly create the absolute URL for GitHub Pages
-  const getImageUrl = () => {
-    // For local development
-    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-      return `${process.env.PUBLIC_URL}/images/_56e07e0e-4f57-4d1d-b6a8-39eee4dcb08b.jpg`;
-    }
-    // For GitHub Pages deployment
-    return '/bodysharing_website/images/_56e07e0e-4f57-4d1d-b6a8-39eee4dcb08b.jpg';
-  };
-  
   return (
     <>
       <div className="hero">
         <div 
           className="hero-overlay" 
           style={{ 
-            backgroundImage: `url(${getImageUrl()})`,
+            backgroundImage: `url(${backgroundImage})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center'
           }}
