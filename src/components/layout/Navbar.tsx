@@ -105,7 +105,7 @@ const Navbar = (): React.ReactElement => {
             to="/contact" 
             className={location.pathname === '/contact' ? 'active' : ''}
           >
-            Contact Us
+            Contact
           </Link>
         </li>
       </ul>
