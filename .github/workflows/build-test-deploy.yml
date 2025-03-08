@@ -1,81 +1,40 @@
-name: Build, Test, and Deploy
+name: Build Test Deploy
 
 on:
   push:
-    branches: [ main, development ]
-  pull_request:
-    branches: [ main, development ]
+    branches:
+      - main
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    
-    steps:
-    - uses: actions/checkout@v3
-    
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: 18
-        cache: 'npm'
-        
-    - name: Install dependencies
-      run: npm install
-      
-    - name: Build project
-      run: npm run build
-      env:
-        CI: false
-
-  test:
-    runs-on: ubuntu-latest
-    
-    steps:
-    - uses: actions/checkout@v3
-    
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: 18
-        cache: 'npm'
-        
-    - name: Install dependencies
-      run: npm install
-      
-    - name: Run tests
-      run: npm test -- --passWithNoTests
-      
-    - name: Upload test results
-      uses: actions/upload-artifact@v4
-      if: always()
-      with:
-        name: test-results
-        path: coverage/
-        retention-days: 7
-
   deploy:
     runs-on: ubuntu-latest
-    needs: [build, test]
-    
+
+    permissions:
+      contents: write
+
     steps:
-    - uses: actions/checkout@v3
-    
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
     - name: Set up Node.js
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v2
       with:
-        node-version: 18
-        cache: 'npm'
-        
+        node-version: '14'
+
+    - name: Install TypeScript
+      run: npm install typescript --save-dev
+
     - name: Install dependencies
       run: npm install
-      
-    - name: Configure Git user
-      run: |
-        git config --global user.email "you@example.com"
-        git config --global user.name "Your Name"
+
+    - name: Build the project
+      run: npm run build
+
+    - name: Run tests
+      run: npm test
 
     - name: Deploy to GitHub Pages
-      run: npm run deploy
-      env:
-        CI: false
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./build

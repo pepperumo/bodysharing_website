@@ -30,6 +30,7 @@ All notable changes to the BodySharing website project will be documented in thi
 - Updated GitHub Actions workflow to run build and test stages in parallel, ensuring both pass before proceeding to the deploy stage.
 - Configured Git user name and email in GitHub Actions workflow to fix deployment issue.
 - Updated the 'Contact Us' link text to 'Contact' in the Navbar component.
+- Added test step before deployment to GitHub Pages in GitHub Actions workflow.
 
 ### Fixed
 - Removed unused imports in `AfterParty.tsx`, `Consent.tsx`, `Experience.tsx`, and `Home.tsx` to fix build errors.
