@@ -25,7 +25,9 @@ All notable changes to the BodySharing website project will be documented in thi
 - Updated @testing-library/react from v16.2.0 to v14.0.0 to fix build issues with the `screen` export
 - Modified GitHub Actions workflow to set CI=false to prevent treating warnings as errors
 - Updated build script in package.json to use tsconfig.build.json
+- Combined build, test, and deploy steps into a single GitHub Actions workflow
 
 ### Fixed
 - Removed unused imports in `AfterParty.tsx`, `Consent.tsx`, `Experience.tsx`, and `Home.tsx` to fix build errors.
 - Fixed GitHub Actions build failure caused by TypeScript error: "Module '@testing-library/react' has no exported member 'screen'"
+- Fixed GitHub Actions workflow to use Node.js 18 and sync package-lock.json
