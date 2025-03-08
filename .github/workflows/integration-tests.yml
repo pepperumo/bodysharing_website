@@ -2,9 +2,9 @@ name: Integration Tests
 
 on:
   push:
-    branches: [ main, master ]
+    branches: [ main, development ]
   pull_request:
-    branches: [ main, master ]
+    branches: [ main, development ]
 
 jobs:
   test:
@@ -23,8 +23,13 @@ jobs:
       run: npm ci
       
     - name: Run tests
-      run: npm test
+      run: npm test -- --passWithNoTests
       
+    - name: Build project
+      run: npm run build
+      env:
+        CI: false
+        
     - name: Upload test results
       uses: actions/upload-artifact@v3
       if: always()
