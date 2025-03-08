@@ -1,5 +1,4 @@
-import React, { useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useRef, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faHandshake, faUserShield, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 

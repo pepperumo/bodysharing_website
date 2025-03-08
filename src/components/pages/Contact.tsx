@@ -39,7 +39,7 @@ const Contact = (): React.ReactElement => {
       <div className="page-header" style={{ backgroundImage: `url(${backgroundImage})` }}>
         <div className="page-header-overlay"></div>
         <div className="page-header-content">
-          <h1 className="text-center">Contact Us</h1>
+          <h1 className="text-center">Contact</h1>
           <p className="text-center">Get in touch with the BodySharing community</p>
         </div>
       </div>
@@ -77,6 +77,7 @@ const Contact = (): React.ReactElement => {
       </section>
     </>
   );
+  
 };
 
 export default Contact;
