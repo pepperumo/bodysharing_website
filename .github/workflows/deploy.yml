@@ -19,7 +19,7 @@ jobs:
         node-version: '14'
 
     - name: Install TypeScript
-      run: npm install typescript
+      run: npm install typescript --save-dev
 
     - name: Install dependencies
       run: npm install
