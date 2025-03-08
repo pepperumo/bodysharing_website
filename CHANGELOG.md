@@ -33,9 +33,11 @@ All notable changes to the BodySharing website project will be documented in thi
 - Added test step before deployment to GitHub Pages in GitHub Actions workflow.
 - Split the GitHub Actions workflow into three distinct jobs: build, test, and deploy, and set dependencies between them.
 - Added TypeScript installation step in the test and deploy phases of the GitHub Actions workflow to ensure TypeScript is available during these phases.
+- Updated `firebase.json` to point the hosting public directory to `build` instead of `public`.
 
 ### Fixed
 - Removed unused imports in `AfterParty.tsx`, `Consent.tsx`, `Experience.tsx`, and `Home.tsx` to fix build errors.
 - Fixed GitHub Actions build failure caused by TypeScript error: "Module '@testing-library/react' has no exported member 'screen'"
 - Fixed GitHub Actions workflow to use Node.js 18 and sync package-lock.json
 - Fixed deployment issue due to missing GitHub credentials.
+- Removed unused imports `onRequest` and `logger` from `functions/src/index.ts` to fix TypeScript errors during deployment.
