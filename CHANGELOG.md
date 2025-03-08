@@ -35,6 +35,7 @@ All notable changes to the BodySharing website project will be documented in thi
 - Added TypeScript installation step in the test and deploy phases of the GitHub Actions workflow to ensure TypeScript is available during these phases.
 - Updated `firebase.json` to point the hosting public directory to `build` instead of `public`.
 - Updated `public/index.html` to include the root element for the React app and link the main CSS and JS files.
+- Updated README to use the new Firebase Hosting link and update the deployment instructions to reflect Firebase Hosting instead of GitHub Pages.
 
 ### Fixed
 - Removed unused imports in `AfterParty.tsx`, `Consent.tsx`, `Experience.tsx`, and `Home.tsx` to fix build errors.

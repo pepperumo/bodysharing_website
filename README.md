@@ -1,6 +1,6 @@
 # Bodysharing Website
 
-This project is a React-based website for Bodysharing community. It is deployed on GitHub Pages and can be accessed [here](https://pepperumo.github.io/bodysharing_website).
+This project is a React-based website for Bodysharing community. It is deployed on Firebase Hosting and can be accessed [here](https://bodysharing-4b51e.web.app/).
 
 ## Getting Started
 
@@ -46,12 +46,12 @@ npm run build
 
 This will create an optimized build of the project in the `build` directory.
 
-### Deploying to GitHub Pages
+### Deploying to Firebase Hosting
 
-The project is configured to deploy to GitHub Pages. To deploy the latest version, run:
+The project is configured to deploy to Firebase Hosting. To deploy the latest version, run:
 
 ```sh
-npm run deploy
+firebase deploy --only hosting
 ```
 
 ## Project Structure
