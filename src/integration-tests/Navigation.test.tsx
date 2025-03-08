@@ -1,6 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
+import '@testing-library/jest-dom'; // Add this import for Jest DOM matchers
 import Home from '../components/pages/Home';
 import Contact from '../components/pages/Contact';
 import HowItWorks from '../components/pages/HowItWorks';
