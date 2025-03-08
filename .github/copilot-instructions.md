@@ -53,3 +53,6 @@
   - `chore: ` for dependency updates
 
 By following these instructions, Copilot should assist in maintaining an organized project with an up-to-date changelog while enforcing modern React TypeScript best practices.
+
+## Steps to do before commiting
+- Run all the github actions workflows locally and make sure they all pass
