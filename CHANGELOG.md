@@ -34,6 +34,7 @@ All notable changes to the BodySharing website project will be documented in thi
 - Split the GitHub Actions workflow into three distinct jobs: build, test, and deploy, and set dependencies between them.
 - Added TypeScript installation step in the test and deploy phases of the GitHub Actions workflow to ensure TypeScript is available during these phases.
 - Updated `firebase.json` to point the hosting public directory to `build` instead of `public`.
+- Updated `public/index.html` to include the root element for the React app and link the main CSS and JS files.
 
 ### Fixed
 - Removed unused imports in `AfterParty.tsx`, `Consent.tsx`, `Experience.tsx`, and `Home.tsx` to fix build errors.
