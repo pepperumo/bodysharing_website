@@ -16,6 +16,7 @@ All notable changes to the BodySharing website project will be documented in thi
 - GitHub Actions workflow to automatically deploy the newest version to gh-pages whenever changes are merged into the main branch.
 - Added `.env` file with build configuration settings to prevent test file inclusion in production builds
 - Added separate `tsconfig.build.json` to exclude test files from the build process
+- Installed Jest type definitions to resolve build warnings.
 
 ### Changed
 - Testing infrastructure improved with additional dependencies:
