@@ -27,6 +27,7 @@ All notable changes to the BodySharing website project will be documented in thi
 - Modified GitHub Actions workflow to set CI=false to prevent treating warnings as errors
 - Updated build script in package.json to use tsconfig.build.json
 - Combined build, test, and deploy steps into a single GitHub Actions workflow
+- Updated GitHub Actions workflow to run build and test stages in parallel, ensuring both pass before proceeding to the deploy stage.
 
 ### Fixed
 - Removed unused imports in `AfterParty.tsx`, `Consent.tsx`, `Experience.tsx`, and `Home.tsx` to fix build errors.
