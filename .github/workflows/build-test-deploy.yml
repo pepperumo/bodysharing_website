@@ -43,6 +43,9 @@ jobs:
     - name: Install dependencies
       run: npm install
 
+    - name: Install TypeScript (test phase)
+      run: npm install typescript --save-dev
+
     - name: Run tests
       run: npm test
 
@@ -64,6 +67,9 @@ jobs:
 
     - name: Install dependencies
       run: npm install
+
+    - name: Install TypeScript (deploy phase)
+      run: npm install typescript --save-dev
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3

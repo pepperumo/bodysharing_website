@@ -32,6 +32,7 @@ All notable changes to the BodySharing website project will be documented in thi
 - Updated the 'Contact Us' link text to 'Contact' in the Navbar component.
 - Added test step before deployment to GitHub Pages in GitHub Actions workflow.
 - Split the GitHub Actions workflow into three distinct jobs: build, test, and deploy, and set dependencies between them.
+- Added TypeScript installation step in the test and deploy phases of the GitHub Actions workflow to ensure TypeScript is available during these phases.
 
 ### Fixed
 - Removed unused imports in `AfterParty.tsx`, `Consent.tsx`, `Experience.tsx`, and `Home.tsx` to fix build errors.
