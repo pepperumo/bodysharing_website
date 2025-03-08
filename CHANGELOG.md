@@ -34,3 +34,4 @@ All notable changes to the BodySharing website project will be documented in thi
 - Removed unused imports in `AfterParty.tsx`, `Consent.tsx`, `Experience.tsx`, and `Home.tsx` to fix build errors.
 - Fixed GitHub Actions build failure caused by TypeScript error: "Module '@testing-library/react' has no exported member 'screen'"
 - Fixed GitHub Actions workflow to use Node.js 18 and sync package-lock.json
+- Fixed deployment issue due to missing GitHub credentials.
