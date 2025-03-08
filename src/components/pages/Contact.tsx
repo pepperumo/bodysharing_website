@@ -77,6 +77,7 @@ const Contact = (): React.ReactElement => {
       </section>
     </>
   );
+  
 };
 
 export default Contact;
