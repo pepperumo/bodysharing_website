@@ -44,3 +44,7 @@ All notable changes to the BodySharing website project will be documented in thi
 - Fixed deployment issue due to missing GitHub credentials.
 - Added TypeScript installation step in the GitHub Actions workflow to fix the module not found error during tests.
 - Fixed GitHub Pages deployment configuration to ensure proper authentication and branch setup.
+
+## [Version] - 2023-10-05
+### Changed
+- Rebuilt and deployed to Firebase Hosting.
