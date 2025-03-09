@@ -1,4 +1,4 @@
-name: Build Test Deploy
+name: CI/CD
 
 on:
   push:
@@ -10,68 +10,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '14'
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
 
-    - name: Install TypeScript
-      run: npm install typescript --save-dev
+      - name: Install dependencies
+        run: npm install
 
-    - name: Install dependencies
-      run: npm install
+      - name: Run tests
+        run: npm test
 
-    - name: Build the project
-      run: npm run build
+      - name: Build project
+        run: npm run build
 
-  test:
-    runs-on: ubuntu-latest
-    needs: build
-
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '14'
-
-    - name: Install dependencies
-      run: npm install
-
-    - name: Install TypeScript (test phase)
-      run: npm install typescript --save-dev
-
-    - name: Run tests
-      run: npm test
-
-  deploy:
-    runs-on: ubuntu-latest
-    needs: test
-
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '14'
-
-    - name: Install dependencies (deploy phase)
-      run: npm install
-
-    - name: Install TypeScript (deploy phase)
-      run: npm install typescript --save-dev
-
-    - name: Configure Git user
-      run: |
-        git config --global user.email "you@example.com"
-        git config --global user.name "Your Name"
-
-    - name: deploy to GitHub Pages
-      run: npm run deploy
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
