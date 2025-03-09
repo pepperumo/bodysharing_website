@@ -25,17 +25,27 @@ const SEND_CONTACT_FORM_EMAIL_ENDPOINT = `${CLOUD_FUNCTION_BASE_URL}/sendContact
  * @param formData Form data from the contact form
  * @returns Promise with the send result
  */
-export const sendContactFormEmail = async (formData: ContactFormData): Promise<Response> => {
+const sendContactFormEmail = async (data: ContactFormData) => {
   try {
-    return fetch(SEND_CONTACT_FORM_EMAIL_ENDPOINT, {
+    const response = await fetch(SEND_CONTACT_FORM_EMAIL_ENDPOINT, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(formData),
+      body: JSON.stringify(data),
     });
+
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+
+    return await response.json();
   } catch (error) {
     console.error('Error sending contact form email:', error);
-    throw new Error('Failed to send email. Please try again later.');
+    throw error;
   }
 };
+
+export { sendContactFormEmail };
+
+export default sendContactFormEmail;
