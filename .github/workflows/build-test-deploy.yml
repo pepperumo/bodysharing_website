@@ -68,5 +68,10 @@ jobs:
     - name: Install TypeScript (deploy phase)
       run: npm install typescript --save-dev
 
+    - name: Configure Git user
+      run: |
+        git config --global user.email "you@example.com"
+        git config --global user.name "Your Name"
+
     - name: deploy to GitHub Pages
       run: npm run deploy
