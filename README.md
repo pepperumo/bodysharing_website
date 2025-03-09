@@ -1,6 +1,6 @@
 # Bodysharing Website
 
-This project is a React-based website for Bodysharing community. It is deployed on GitHub Pages and can be accessed [here](https://pepperumo.github.io/bodysharing_website).
+This project is a React-based website for Bodysharing community. It is deployed on Firebase and can be accessed [here](https://bodysharing-4b51e.web.app/).
 
 ## Getting Started
 
@@ -10,6 +10,7 @@ These instructions will help you set up and run the project on your local machin
 
 - Node.js (v14 or higher)
 - npm (v6 or higher)
+- Firebase CLI (for deployment)
 
 ### Installation
 
@@ -46,13 +47,25 @@ npm run build
 
 This will create an optimized build of the project in the `build` directory.
 
-### Deploying to GitHub Pages
+### Deploying to Firebase
 
-The project is configured to deploy to GitHub Pages. To deploy the latest version, run:
+The project is configured to deploy to Firebase. To deploy the latest version:
 
-```sh
-npm run deploy
-```
+1. Make sure you have Firebase CLI installed:
+   ```sh
+   npm install -g firebase-tools
+   ```
+
+2. Login to Firebase:
+   ```sh
+   firebase login
+   ```
+
+3. Build and deploy:
+   ```sh
+   npm run build
+   firebase deploy
+   ```
 
 ## Project Structure
 
