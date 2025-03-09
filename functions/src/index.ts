@@ -14,12 +14,9 @@ import {RESEND_API_KEY, EMAIL_FROM, EMAIL_ADMIN} from "./config";
 
 // Update CORS configuration to allow specific origins
 const corsHandler = corsLib({
-  // This will reflect the request origin and check it against the allowed list
-  origin: true,
+  origin: "*",
   methods: ["POST", "OPTIONS"],
-  credentials: true,
-  allowedHeaders: ["Content-Type", "Accept", "Origin"],
-  maxAge: 86400, // Cache preflight request results for 24 hours
+  allowedHeaders: ["Content-Type"],
 });
 
 interface EmailPayload {

@@ -25,18 +25,15 @@ const sendContactFormEmail = async (data: ContactFormData) => {
     const response = await fetch(SEND_CONTACT_FORM_EMAIL_ENDPOINT, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-        'Origin': window.location.origin
+        'Content-Type': 'application/json'
       },
       mode: 'cors',
-      credentials: 'include',
+      credentials: 'omit',
       body: JSON.stringify(data),
     });
 
     if (!response.ok) {
-      const errorData = await response.json();
-      throw new Error(errorData.message || 'Network response was not ok');
+      throw new Error('Network response was not ok');
     }
 
     return response;
