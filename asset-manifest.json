@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/bodysharing_website/static/css/main.8622cb3b.css",
+    "main.js": "/bodysharing_website/static/js/main.3bb03eb7.js",
+    "static/js/453.fca4e49f.chunk.js": "/bodysharing_website/static/js/453.fca4e49f.chunk.js",
+    "static/media/background.jpg": "/bodysharing_website/static/media/background.f3c5b8cf9e8e8af4a594.jpg",
+    "index.html": "/bodysharing_website/index.html",
+    "main.8622cb3b.css.map": "/bodysharing_website/static/css/main.8622cb3b.css.map",
+    "main.3bb03eb7.js.map": "/bodysharing_website/static/js/main.3bb03eb7.js.map",
+    "453.fca4e49f.chunk.js.map": "/bodysharing_website/static/js/453.fca4e49f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8622cb3b.css",
+    "static/js/main.3bb03eb7.js"
+  ]
+}
