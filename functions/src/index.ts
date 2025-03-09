@@ -20,9 +20,10 @@ const corsHandler = corsLib({
     "https://bodysharing-4b51e.web.app",
     "https://bodysharing-4b51e.firebaseapp.com",
   ],
-  methods: ["POST"],
+  methods: ["POST", "OPTIONS"],
   credentials: true,
-  allowedHeaders: ["Content-Type"],
+  allowedHeaders: ["Content-Type", "Origin", "Accept"],
+  optionsSuccessStatus: 200,
 });
 
 interface EmailPayload {
@@ -74,6 +75,11 @@ export const sendEmail = onRequest((request, response) => {
 
 export const sendContactFormEmail = onRequest((request, response) => {
   return corsHandler(request, response, async () => {
+    // Handle preflight request
+    if (request.method === "OPTIONS") {
+      return response.status(200).send();
+    }
+
     try {
       // Validate request method
       if (request.method !== "POST") {
