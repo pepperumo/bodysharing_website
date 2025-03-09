@@ -2,6 +2,12 @@
 
 All notable changes to the BodySharing website project will be documented in this file.
 
+## [Version] - 2025-03-09
+### Changed
+- Deployed updated Firebase Functions with mandatory toEmail parameter
+- Enhanced error handling for contact form submissions
+- Improved validation for email routing
+
 ## Unreleased
 
 ### Added

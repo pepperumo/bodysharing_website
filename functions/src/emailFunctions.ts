@@ -87,7 +87,7 @@ export const sendContactFormEmail = onRequest((request, response) => {
       const missingFields = [];
       if (!name) missingFields.push("name");
       if (!email) missingFields.push("email");
-      if (!inquiryType) missingFields.push("inquiryType"); 
+      if (!inquiryType) missingFields.push("inquiryType");
       if (!message) missingFields.push("message");
       if (!toEmail) missingFields.push("toEmail");
       if (consent === undefined) missingFields.push("consent");
