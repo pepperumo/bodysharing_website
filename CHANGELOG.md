@@ -5,6 +5,12 @@ All notable changes to the BodySharing website project will be documented in thi
 ## Unreleased
 
 ### Added
+- Email service integration with Resend.com for contact form submissions
+  - Created reusable email service with secure API key handling
+  - Implemented custom useEmailSubmission hook for React components
+  - Added automatic confirmation emails to users
+  - Updated contact form to use the new email service
+  - Made sender and admin email addresses configurable via environment variables
 - Basic integration tests for key components:
   - Tests for Navbar component
   - Tests for ContactForm component
@@ -17,6 +23,9 @@ All notable changes to the BodySharing website project will be documented in thi
 - Added `.env` file with build configuration settings to prevent test file inclusion in production builds
 - Added separate `tsconfig.build.json` to exclude test files from the build process
 - Installed Jest type definitions to resolve build warnings.
+- Firebase Functions implementation for sending emails through Resend API
+  - Added sendEmail function for general email sending capabilities
+  - Added sendContactFormEmail function specifically for contact form submissions
 
 ### Changed
 - Testing infrastructure improved with additional dependencies:
@@ -44,6 +53,7 @@ All notable changes to the BodySharing website project will be documented in thi
 - Fixed deployment issue due to missing GitHub credentials.
 - Added TypeScript installation step in the GitHub Actions workflow to fix the module not found error during tests.
 - Fixed GitHub Pages deployment configuration to ensure proper authentication and branch setup.
+- Fixed TypeScript errors in Firebase Functions by correcting import syntax for cors package
 
 ## [Version] - 2023-10-05
 ### Changed
