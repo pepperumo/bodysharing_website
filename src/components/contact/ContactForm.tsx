@@ -5,6 +5,7 @@ import SelectField from '../common/form/SelectField';
 import CheckboxField from '../common/form/CheckboxField';
 import Button from '../common/form/Button';
 import '../../styles/Contact.css';
+import useEmailSubmission from '../../hooks/useEmailSubmission';
 
 interface FormData {
   name: string;
@@ -12,6 +13,7 @@ interface FormData {
   inquiryType: string;
   message: string;
   consent: boolean;
+  toEmail: string; // Required field to specify recipient email
 }
 
 const ContactForm = (): React.ReactElement => {
@@ -21,11 +23,15 @@ const ContactForm = (): React.ReactElement => {
     email: '',
     inquiryType: '',
     message: '',
-    consent: false
+    consent: false,
+    toEmail: '' // Initialize with empty string
   });
   
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitted, setSubmitted] = useState(false);
+  
+  // Email submission hook - removing isSuccess as it's not being used
+  const { isSubmitting, error, submitContactForm } = useEmailSubmission();
 
   // Handle input changes
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -92,13 +98,41 @@ const ContactForm = (): React.ReactElement => {
   };
 
   // Handle form submission
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
+    // Set the toEmail based on inquiryType before validation
+    setFormData(prevData => ({
+      ...prevData,
+      toEmail: getEmailForInquiryType(prevData.inquiryType)
+    }));
+    
+    // Use updated formData with toEmail for validation
     if (validateForm()) {
-      // This would normally be where you'd send the data to a server
-      // For this static site, we just show a success message
-      setSubmitted(true);
+      try {
+        await submitContactForm({
+          ...formData,
+          toEmail: getEmailForInquiryType(formData.inquiryType)
+        });
+        setSubmitted(true);
+      } catch (err) {
+        console.error('Error submitting form:', err);
+      }
+    }
+  };
+
+  // Helper function to get the appropriate email address for each inquiry type
+  const getEmailForInquiryType = (inquiryType: string): string => {
+    switch (inquiryType) {
+      case 'membership':
+        return 'applications@bodysharing-berlin.de';
+      case 'event':
+        return 'events@bodysharing-berlin.de';
+      case 'safety':
+        return 'safety@bodysharing-berlin.de';
+      case 'other':
+      default:
+        return 'info@bodysharing-berlin.de';
     }
   };
 
@@ -113,7 +147,7 @@ const ContactForm = (): React.ReactElement => {
     <div className="form-container">
       {submitted ? (
         <div className="form-success">
-          <p>Thank you for your submission! Since this is a demo site, your data has not been sent anywhere.</p>
+          <p>Thank you for your submission! We have sent you a confirmation email and will get back to you shortly.</p>
         </div>
       ) : (
         <form onSubmit={handleSubmit}>
@@ -166,8 +200,19 @@ const ContactForm = (): React.ReactElement => {
             error={errors.consent}
           />
           
-          <Button type="submit" variant="primary" fullWidth>
-            Submit
+          {error && (
+            <div className="form-error">
+              <p>There was a problem sending your message: {error.message}</p>
+            </div>
+          )}
+          
+          <Button 
+            type="submit" 
+            variant="primary" 
+            fullWidth 
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? 'Sending...' : 'Submit'}
           </Button>
         </form>
       )}

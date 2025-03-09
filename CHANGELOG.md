@@ -2,9 +2,21 @@
 
 All notable changes to the BodySharing website project will be documented in this file.
 
+## [Version] - 2025-03-09
+### Changed
+- Deployed updated Firebase Functions with mandatory toEmail parameter
+- Enhanced error handling for contact form submissions
+- Improved validation for email routing
+
 ## Unreleased
 
 ### Added
+- Email service integration with Resend.com for contact form submissions
+  - Created reusable email service with secure API key handling
+  - Implemented custom useEmailSubmission hook for React components
+  - Added automatic confirmation emails to users
+  - Updated contact form to use the new email service
+  - Made sender and admin email addresses configurable via environment variables
 - Basic integration tests for key components:
   - Tests for Navbar component
   - Tests for ContactForm component
@@ -17,6 +29,16 @@ All notable changes to the BodySharing website project will be documented in thi
 - Added `.env` file with build configuration settings to prevent test file inclusion in production builds
 - Added separate `tsconfig.build.json` to exclude test files from the build process
 - Installed Jest type definitions to resolve build warnings.
+- Firebase Functions implementation for sending emails through Resend API
+  - Added sendEmail function for general email sending capabilities
+  - Added sendContactFormEmail function specifically for contact form submissions
+- Configurable logging system with emoji support and color coding
+- Environment-based logging configuration (.env files)
+- Verbose logging for email service with detailed request tracking
+- Debug mode logging for development environment
+- Dynamic email routing based on inquiry type in contact form
+  - Contact form now dynamically routes emails to department-specific addresses
+  - Added proper validation for destination email address
 
 ### Changed
 - Testing infrastructure improved with additional dependencies:
@@ -36,6 +58,14 @@ All notable changes to the BodySharing website project will be documented in thi
 - Updated GitHub Actions workflow to install dependencies before running the build command in the deploy step to fix missing `react-scripts` error.
 - Updated GitHub Actions workflow to install TypeScript before running the build command in the deploy step to fix missing `typescript` module error.
 - Updated GitHub Actions workflow to configure Git user identity before running the deploy command to fix missing author identity error.
+- Updated email service to use real cloud function URL instead of local emulator URL.
+- Updated Firebase Functions to v2 syntax
+- Upgraded firebase-functions package to latest version
+- Migrated cloud functions to 2nd Gen (GCFv2)
+- Enhanced emailService with detailed logging and error tracking
+- Improved error handling with detailed error messages in logs
+- Modified sendContactFormEmail function to require toEmail parameter without fallbacks
+- Enhanced error logging to show specific missing fields in contact form submissions
 
 ### Fixed
 - Removed unused imports in `AfterParty.tsx`, `Consent.tsx`, `Experience.tsx`, and `Home.tsx` to fix build errors.
@@ -44,6 +74,7 @@ All notable changes to the BodySharing website project will be documented in thi
 - Fixed deployment issue due to missing GitHub credentials.
 - Added TypeScript installation step in the GitHub Actions workflow to fix the module not found error during tests.
 - Fixed GitHub Pages deployment configuration to ensure proper authentication and branch setup.
+- Fixed TypeScript errors in Firebase Functions by correcting import syntax for cors package
 
 ## [Version] - 2023-10-05
 ### Changed
