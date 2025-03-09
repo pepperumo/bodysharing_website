@@ -101,3 +101,66 @@
 [debug] [2025-03-09T12:32:59.507Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/bodysharing-4b51e/configs/resend/variables/api_key {"name":"projects/bodysharing-4b51e/configs/resend/variables/api_key","updateTime":"2025-03-09T11:32:07.264930947Z","text":"re_XsCu6Gft_94MGXrHPLzL6nuwSvbzhiQ4S"}
 [debug] [2025-03-09T12:32:59.523Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/bodysharing-4b51e/configs/email/variables/admin 200
 [debug] [2025-03-09T12:32:59.523Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/bodysharing-4b51e/configs/email/variables/admin {"name":"projects/bodysharing-4b51e/configs/email/variables/admin","updateTime":"2025-03-09T11:32:07.348248763Z","text":"yan.braslavsky@gmail.com"}
+[debug] [2025-03-09T12:32:59.523Z] Validating nodejs source
+[warn] ⚠  functions: Runtime Node.js 18 will be deprecated on 2025-04-30 and will be decommissioned on 2025-10-31, after which you will not be able to deploy without upgrading. Consider upgrading now to avoid disruption. See https://cloud.google.com/functions/docs/runtime-support for full details on the lifecycle policy 
+[debug] [2025-03-09T12:33:00.105Z] > [functions] package.json contents: {
+  "name": "functions",
+  "scripts": {
+    "lint": "eslint --ext .js,.ts .",
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "serve": "npm run build && firebase emulators:start --only functions",
+    "shell": "npm run build && firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "lib/index.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "firebase-admin": "^11.8.0",
+    "firebase-functions": "^6.3.2",
+    "resend": "^2.0.0"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.12.0",
+    "@typescript-eslint/parser": "^5.12.0",
+    "eslint": "^8.9.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-import": "^2.25.4",
+    "firebase-functions-test": "^3.1.0",
+    "typescript": "^4.9.0"
+  },
+  "private": true
+}
+[debug] [2025-03-09T12:33:00.106Z] Building nodejs source
+[info] i  functions: Loading and analyzing source code for codebase default to determine what to deploy 
+[debug] [2025-03-09T12:33:00.106Z] Could not find functions.yaml. Must use http discovery
+[debug] [2025-03-09T12:33:00.114Z] Found firebase-functions binary at '/Users/yanbra/Documents/Github Projects/bodysharing_website/functions/node_modules/.bin/firebase-functions'
+[info] Serving at port 8398
+
+[debug] [2025-03-09T12:33:00.520Z] Got response from /__/functions.yaml {"endpoints":{"sendEmail":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"sendEmail"},"sendContactFormEmail":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"sendContactFormEmail"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] i  extensions: ensuring required API firebaseextensions.googleapis.com is enabled... 
+[debug] [2025-03-09T12:33:04.537Z] Checked if tokens are valid: true, expires at: 1741524631740
+[debug] [2025-03-09T12:33:04.537Z] Checked if tokens are valid: true, expires at: 1741524631740
+[debug] [2025-03-09T12:33:04.537Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/bodysharing-4b51e/services/firebaseextensions.googleapis.com [none]
+[debug] [2025-03-09T12:33:04.537Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/bodysharing-4b51e/services/firebaseextensions.googleapis.com x-goog-quota-user=projects/bodysharing-4b51e
+[debug] [2025-03-09T12:33:05.535Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/bodysharing-4b51e/services/firebaseextensions.googleapis.com 200
+[debug] [2025-03-09T12:33:05.535Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/bodysharing-4b51e/services/firebaseextensions.googleapis.com [omitted]
+[info] ✔  extensions: required API firebaseextensions.googleapis.com is enabled 
+[debug] [2025-03-09T12:33:05.535Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-03-09T12:33:05.535Z] > authorizing via signed-in user (yan.braslavsky@gmail.com)
+[debug] [2025-03-09T12:33:05.535Z] [iam] checking project bodysharing-4b51e for permissions ["firebase.projects.get","firebaseextensions.instances.list"]
+[debug] [2025-03-09T12:33:05.535Z] Checked if tokens are valid: true, expires at: 1741524631740
+[debug] [2025-03-09T12:33:05.535Z] Checked if tokens are valid: true, expires at: 1741524631740
+[debug] [2025-03-09T12:33:05.535Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/bodysharing-4b51e:testIamPermissions [none]
+[debug] [2025-03-09T12:33:05.535Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/bodysharing-4b51e:testIamPermissions x-goog-quota-user=projects/bodysharing-4b51e
+[debug] [2025-03-09T12:33:05.535Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/bodysharing-4b51e:testIamPermissions {"permissions":["firebase.projects.get","firebaseextensions.instances.list"]}
+[debug] [2025-03-09T12:33:05.824Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/bodysharing-4b51e:testIamPermissions 200
+[debug] [2025-03-09T12:33:05.824Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/bodysharing-4b51e:testIamPermissions {"permissions":["firebase.projects.get","firebaseextensions.instances.list"]}
+[debug] [2025-03-09T12:33:05.825Z] Checked if tokens are valid: true, expires at: 1741524631740
+[debug] [2025-03-09T12:33:05.825Z] Checked if tokens are valid: true, expires at: 1741524631740
+[debug] [2025-03-09T12:33:05.825Z] >>> [apiv2][query] GET https://firebaseextensions.googleapis.com/v1beta/projects/bodysharing-4b51e/instances pageSize=100&pageToken=
