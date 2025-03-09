@@ -72,7 +72,7 @@ export const sendContactFormEmail = functions.https.onRequest(
         const {name, email, inquiryType, message, consent} = request.body;
 
         // Validate the required fields
-        if (!name || !email || !inquiryType || !message || 
+        if (!name || !email || !inquiryType || !message ||
             consent === undefined) {
           return response.status(400).json({
             error: "Missing required form fields",
@@ -81,9 +81,9 @@ export const sendContactFormEmail = functions.https.onRequest(
 
         // Initialize Resend with API key
         const resend = new Resend(functions.config().resend.api_key);
-        const fromEmail = 
+        const fromEmail =
           functions.config().email.from || "contact@bodysharing.com";
-        const adminEmail = 
+        const adminEmail =
           functions.config().email.admin || "admin@bodysharing.com";
 
         const inquiryTypeMap: Record<string, string> = {
@@ -94,7 +94,7 @@ export const sendContactFormEmail = functions.https.onRequest(
         };
 
         const inquiryTypeText = inquiryTypeMap[inquiryType] || inquiryType;
-        
+
         // Email to the site admin with the form contents
         await resend.emails.send({
           to: adminEmail,
@@ -113,7 +113,7 @@ export const sendContactFormEmail = functions.https.onRequest(
             form.</small></p>
           `,
         });
-        
+
         // Confirmation email to the user
         const userResult = await resend.emails.send({
           to: email,
@@ -139,7 +139,7 @@ export const sendContactFormEmail = functions.https.onRequest(
         console.error("Error sending contact form email:", error);
         return response.status(500).json({
           error: "Failed to send contact form email",
-          details: error instanceof Error ? 
+          details: error instanceof Error ?
             error.message : "Unknown error",
         });
       }
