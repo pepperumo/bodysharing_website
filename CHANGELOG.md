@@ -46,6 +46,9 @@ All notable changes to the BodySharing website project will be documented in thi
 - Updated GitHub Actions workflow to install TypeScript before running the build command in the deploy step to fix missing `typescript` module error.
 - Updated GitHub Actions workflow to configure Git user identity before running the deploy command to fix missing author identity error.
 - Updated email service to use real cloud function URL instead of local emulator URL.
+- Updated Firebase Functions to v2 syntax
+- Upgraded firebase-functions package to latest version
+- Migrated cloud functions to 2nd Gen (GCFv2)
 
 ### Fixed
 - Removed unused imports in `AfterParty.tsx`, `Consent.tsx`, `Experience.tsx`, and `Home.tsx` to fix build errors.

@@ -17,7 +17,7 @@
   "dependencies": {
     "cors": "^2.8.5",
     "firebase-admin": "^11.8.0",
-    "firebase-functions": "^4.3.1",
+    "firebase-functions": "^6.3.2",
     "resend": "^2.0.0"
   },
   "devDependencies": {
