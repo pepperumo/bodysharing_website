@@ -42,3 +42,4 @@ All notable changes to the BodySharing website project will be documented in thi
 - Fixed GitHub Actions build failure caused by TypeScript error: "Module '@testing-library/react' has no exported member 'screen'"
 - Fixed GitHub Actions workflow to use Node.js 18 and sync package-lock.json
 - Fixed deployment issue due to missing GitHub credentials.
+- Added TypeScript installation step in the GitHub Actions workflow to fix the module not found error during tests.
