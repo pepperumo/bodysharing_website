@@ -13,12 +13,7 @@ export interface ContactFormData {
 }
 
 // Firebase Cloud Functions URLs - Update these with your actual deployed function URLs
-const CLOUD_FUNCTION_BASE_URL = process.env.NODE_ENV === 'production'
-  ? 'https://us-central1-bodysharing-4b51e.cloudfunctions.net'
-  : 'http://localhost:5001/bodysharing-4b51e/us-central1';
-
-const SEND_EMAIL_ENDPOINT = `${CLOUD_FUNCTION_BASE_URL}/sendEmail`;
-const SEND_CONTACT_FORM_EMAIL_ENDPOINT = `${CLOUD_FUNCTION_BASE_URL}/sendContactFormEmail`;
+const SEND_CONTACT_FORM_EMAIL_ENDPOINT = 'https://us-central1-bodysharing-4b51e.cloudfunctions.net/sendContactFormEmail';
 
 /**
  * Formats and sends a contact form submission as an email through Firebase Cloud Functions
