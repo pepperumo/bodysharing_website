@@ -43,3 +43,4 @@ All notable changes to the BodySharing website project will be documented in thi
 - Fixed GitHub Actions workflow to use Node.js 18 and sync package-lock.json
 - Fixed deployment issue due to missing GitHub credentials.
 - Added TypeScript installation step in the GitHub Actions workflow to fix the module not found error during tests.
+- Fixed GitHub Pages deployment configuration to ensure proper authentication and branch setup.
