@@ -65,5 +65,8 @@ jobs:
     - name: Install dependencies (deploy phase)
       run: npm install
 
+    - name: Install TypeScript (deploy phase)
+      run: npm install typescript --save-dev
+
     - name: deploy to GitHub Pages
       run: npm run deploy
