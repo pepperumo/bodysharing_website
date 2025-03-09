@@ -26,15 +26,20 @@ const sendContactFormEmail = async (data: ContactFormData) => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Origin': window.location.origin
       },
+      mode: 'cors',
+      credentials: 'include',
       body: JSON.stringify(data),
     });
 
     if (!response.ok) {
-      throw new Error('Network response was not ok');
+      const errorData = await response.json();
+      throw new Error(errorData.message || 'Network response was not ok');
     }
 
-    return await response.json();
+    return response;
   } catch (error) {
     console.error('Error sending contact form email:', error);
     throw error;

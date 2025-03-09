@@ -14,16 +14,12 @@ import {RESEND_API_KEY, EMAIL_FROM, EMAIL_ADMIN} from "./config";
 
 // Update CORS configuration to allow specific origins
 const corsHandler = corsLib({
-  origin: [
-    "http://localhost:3000",
-    "http://localhost:5000",
-    "https://bodysharing-4b51e.web.app",
-    "https://bodysharing-4b51e.firebaseapp.com",
-  ],
+  // This will reflect the request origin and check it against the allowed list
+  origin: true,
   methods: ["POST", "OPTIONS"],
   credentials: true,
-  allowedHeaders: ["Content-Type", "Origin", "Accept"],
-  optionsSuccessStatus: 200,
+  allowedHeaders: ["Content-Type", "Accept", "Origin"],
+  maxAge: 86400, // Cache preflight request results for 24 hours
 });
 
 interface EmailPayload {
