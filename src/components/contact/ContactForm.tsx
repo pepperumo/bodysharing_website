@@ -13,6 +13,7 @@ interface FormData {
   inquiryType: string;
   message: string;
   consent: boolean;
+  toEmail: string; // Required field to specify recipient email
 }
 
 const ContactForm = (): React.ReactElement => {
@@ -22,7 +23,8 @@ const ContactForm = (): React.ReactElement => {
     email: '',
     inquiryType: '',
     message: '',
-    consent: false
+    consent: false,
+    toEmail: '' // Initialize with empty string
   });
   
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -99,13 +101,38 @@ const ContactForm = (): React.ReactElement => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
+    // Set the toEmail based on inquiryType before validation
+    setFormData(prevData => ({
+      ...prevData,
+      toEmail: getEmailForInquiryType(prevData.inquiryType)
+    }));
+    
+    // Use updated formData with toEmail for validation
     if (validateForm()) {
       try {
-        await submitContactForm(formData);
+        await submitContactForm({
+          ...formData,
+          toEmail: getEmailForInquiryType(formData.inquiryType)
+        });
         setSubmitted(true);
       } catch (err) {
         console.error('Error submitting form:', err);
       }
+    }
+  };
+
+  // Helper function to get the appropriate email address for each inquiry type
+  const getEmailForInquiryType = (inquiryType: string): string => {
+    switch (inquiryType) {
+      case 'membership':
+        return 'applications@bodysharing-berlin.de';
+      case 'event':
+        return 'events@bodysharing-berlin.de';
+      case 'safety':
+        return 'safety@bodysharing-berlin.de';
+      case 'other':
+      default:
+        return 'info@bodysharing-berlin.de';
     }
   };
 

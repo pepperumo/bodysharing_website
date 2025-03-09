@@ -30,6 +30,9 @@ All notable changes to the BodySharing website project will be documented in thi
 - Environment-based logging configuration (.env files)
 - Verbose logging for email service with detailed request tracking
 - Debug mode logging for development environment
+- Dynamic email routing based on inquiry type in contact form
+  - Contact form now dynamically routes emails to department-specific addresses
+  - Added proper validation for destination email address
 
 ### Changed
 - Testing infrastructure improved with additional dependencies:
@@ -55,6 +58,8 @@ All notable changes to the BodySharing website project will be documented in thi
 - Migrated cloud functions to 2nd Gen (GCFv2)
 - Enhanced emailService with detailed logging and error tracking
 - Improved error handling with detailed error messages in logs
+- Modified sendContactFormEmail function to require toEmail parameter without fallbacks
+- Enhanced error logging to show specific missing fields in contact form submissions
 
 ### Fixed
 - Removed unused imports in `AfterParty.tsx`, `Consent.tsx`, `Experience.tsx`, and `Home.tsx` to fix build errors.

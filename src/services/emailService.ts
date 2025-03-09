@@ -12,6 +12,7 @@ export interface ContactFormData {
   inquiryType: string;
   message: string;
   consent: boolean;
+  toEmail: string; // Required field to specify recipient email
 }
 
 // Firebase Cloud Functions URLs - Update these with your actual deployed function URLs
@@ -25,6 +26,12 @@ const SEND_CONTACT_FORM_EMAIL_ENDPOINT = 'https://us-central1-bodysharing-4b51e.
 const sendContactFormEmail = async (data: ContactFormData) => {
   logger.info('🚀 Starting contact form submission process');
   logger.debug('Form data:', data);
+
+  // Validate required fields including toEmail
+  if (!data.toEmail) {
+    logger.error('❌ Missing required toEmail field');
+    throw new Error('Missing required destination email address');
+  }
 
   try {
     logger.info('📤 Sending request to Cloud Function');

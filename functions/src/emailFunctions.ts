@@ -1,6 +1,6 @@
 import {onRequest} from "firebase-functions/v2/https";
 import {Resend} from "resend";
-import {RESEND_API_KEY, EMAIL_FROM, EMAIL_ADMIN} from "./config.js";
+import {RESEND_API_KEY, EMAIL_FROM} from "./config.js";
 import {corsHandler} from "./middleware/cors.js";
 import {logger} from "./utils/logger.js";
 
@@ -79,17 +79,25 @@ export const sendContactFormEmail = onRequest((request, response) => {
         return response.status(405).json({error: "Method not allowed"});
       }
 
-      const {name, email, inquiryType, message, consent} = request.body;
+      const {name, email, inquiryType, message, consent, toEmail} = request.body;
       logger.info("📝 Received contact form submission from:", name);
-      logger.debug("Form data:", {email, inquiryType, message, consent});
+      logger.debug("Form data:", {email, inquiryType, message, consent, toEmail});
 
-      // Validate the required fields
-      if (!name || !email || !inquiryType || !message ||
-          consent === undefined) {
-        logger.error("❌ Missing required form fields");
-        logger.debug("Received payload:", {name, email, inquiryType, message, consent});
+      // Create a list of missing fields for better error reporting
+      const missingFields = [];
+      if (!name) missingFields.push("name");
+      if (!email) missingFields.push("email");
+      if (!inquiryType) missingFields.push("inquiryType"); 
+      if (!message) missingFields.push("message");
+      if (!toEmail) missingFields.push("toEmail");
+      if (consent === undefined) missingFields.push("consent");
+
+      // Check if any required fields are missing
+      if (missingFields.length > 0) {
+        logger.error("❌ Missing required form fields:", missingFields);
         return response.status(400).json({
           error: "Missing required form fields",
+          missingFields: missingFields,
         });
       }
 
@@ -97,7 +105,6 @@ export const sendContactFormEmail = onRequest((request, response) => {
       logger.info("🔑 Initializing Resend client");
       const resend = new Resend(RESEND_API_KEY);
       const fromEmail = EMAIL_FROM;
-      const adminEmail = EMAIL_ADMIN;
 
       const inquiryTypeMap: Record<string, string> = {
         "membership": "Membership Application",
@@ -110,9 +117,9 @@ export const sendContactFormEmail = onRequest((request, response) => {
       logger.info("📧 Preparing admin notification email");
 
       // Email to the site admin with the form contents
-      logger.info("📤 Sending admin notification email...");
+      logger.info("📤 Sending admin notification email to:", toEmail);
       await resend.emails.send({
-        to: adminEmail,
+        to: toEmail,
         from: fromEmail,
         subject: `New Contact Form: ${inquiryTypeText}`,
         html: `
