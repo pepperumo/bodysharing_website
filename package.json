@@ -2,7 +2,7 @@
   "name": "bodysharing_website_react",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://pepperumo.github.io/bodysharing_website/",
+  "homepage": "https://bodysharing-4b51e.web.app",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
