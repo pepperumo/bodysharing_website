@@ -10,6 +10,7 @@
 import * as functions from "firebase-functions";
 import corsLib from "cors";
 import {Resend} from "resend";
+import {RESEND_API_KEY, EMAIL_FROM, EMAIL_ADMIN} from "./config";
 
 const corsHandler = corsLib({origin: true});
 
@@ -39,7 +40,7 @@ export const sendEmail = functions.https.onRequest((request, response) => {
       }
 
       // Initialize Resend with API key
-      const resend = new Resend(functions.config().resend.api_key);
+      const resend = new Resend(RESEND_API_KEY);
 
       // Send the email
       const result = await resend.emails.send({
@@ -80,11 +81,9 @@ export const sendContactFormEmail = functions.https.onRequest(
         }
 
         // Initialize Resend with API key
-        const resend = new Resend(functions.config().resend.api_key);
-        const fromEmail =
-          functions.config().email.from || "contact@bodysharing.com";
-        const adminEmail =
-          functions.config().email.admin || "admin@bodysharing.com";
+        const resend = new Resend(RESEND_API_KEY);
+        const fromEmail = EMAIL_FROM;
+        const adminEmail = EMAIL_ADMIN;
 
         const inquiryTypeMap: Record<string, string> = {
           "membership": "Membership Application",
