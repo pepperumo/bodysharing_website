@@ -39,6 +39,9 @@ All notable changes to the BodySharing website project will be documented in thi
 - Dynamic email routing based on inquiry type in contact form
   - Contact form now dynamically routes emails to department-specific addresses
   - Added proper validation for destination email address
+- Structured the Apply page similar to the Contact and Experience pages.
+- Applied the same CSS styling and animations to the Apply page.
+- Updated routing to include the new Apply page.
 
 ### Changed
 - Testing infrastructure improved with additional dependencies:
@@ -68,6 +71,10 @@ All notable changes to the BodySharing website project will be documented in thi
 - Enhanced error logging to show specific missing fields in contact form submissions
 
 ### Fixed
+- TypeScript type error in ApplicationStatus component by using proper status comparison
+- Fixed incorrect function name import in AdminApplications (getApplicationList -> getApplicationsList)
+- Added missing user property to AppContext type definition
+- Updated Application interface in AdminApplications to match AdminApplicationItem type
 - Removed unused imports in `AfterParty.tsx`, `Consent.tsx`, `Experience.tsx`, and `Home.tsx` to fix build errors.
 - Fixed GitHub Actions build failure caused by TypeScript error: "Module '@testing-library/react' has no exported member 'screen'"
 - Fixed GitHub Actions workflow to use Node.js 18 and sync package-lock.json

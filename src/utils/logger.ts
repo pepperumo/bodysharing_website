@@ -28,6 +28,14 @@ class Logger {
   }
 
   /**
+   * Returns ISO timestamp for log entries
+   * @return {string} ISO format timestamp
+   */
+  private timestamp(): string {
+    return new Date().toISOString();
+  }
+
+  /**
    * Log informational message
    * @param message - The message to log
    * @param args - Additional arguments to log
@@ -35,7 +43,7 @@ class Logger {
   info(message: string, ...args: unknown[]): void {
     if (!this.isEnabled) return;
     console.log(
-      '%c ℹ️ INFO: ' + message,
+      `%c[${this.timestamp()}] ℹ️ INFO: ${message}`,
       this.getColoredText('blue'),
       ...this.formatArgs(args)
     );
@@ -49,7 +57,7 @@ class Logger {
   success(message: string, ...args: unknown[]): void {
     if (!this.isEnabled) return;
     console.log(
-      '%c ✅ SUCCESS: ' + message,
+      `%c[${this.timestamp()}] ✅ SUCCESS: ${message}`,
       this.getColoredText('green'),
       ...this.formatArgs(args)
     );
@@ -63,7 +71,7 @@ class Logger {
   warn(message: string, ...args: unknown[]): void {
     if (!this.isEnabled) return;
     console.warn(
-      '%c ⚠️ WARNING: ' + message,
+      `%c[${this.timestamp()}] ⚠️ WARNING: ${message}`,
       this.getColoredText('yellow'),
       ...this.formatArgs(args)
     );
@@ -77,7 +85,7 @@ class Logger {
   error(message: string, ...args: unknown[]): void {
     if (!this.isEnabled) return;
     console.error(
-      '%c ❌ ERROR: ' + message,
+      `%c[${this.timestamp()}] ❌ ERROR: ${message}`,
       this.getColoredText('red'),
       ...this.formatArgs(args)
     );
@@ -91,7 +99,7 @@ class Logger {
   debug(message: string, ...args: unknown[]): void {
     if (!this.isEnabled || process.env.NODE_ENV !== 'development') return;
     console.debug(
-      '%c 🔍 DEBUG: ' + message,
+      `%c[${this.timestamp()}] 🔍 DEBUG: ${message}`,
       this.getColoredText('gray'),
       ...this.formatArgs(args)
     );

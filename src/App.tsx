@@ -1,5 +1,5 @@
 import React from 'react';
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './components/layout/Layout';
 import Home from './components/pages/Home';
 import HowItWorks from './components/pages/HowItWorks';
@@ -8,6 +8,10 @@ import Consent from './components/pages/Consent';
 import Experience from './components/pages/Experience';
 import AfterParty from './components/pages/AfterParty';
 import Testimonials from './components/pages/Testimonials';
+import Apply from './components/pages/Apply';
+import EventApplication from './components/pages/EventApplication';
+import Admin from './components/pages/Admin';
+import QrScanner from './components/pages/QrScanner';
 import { AppProvider } from './context/AppContext';
 import './styles/global.css';
 
@@ -24,6 +28,10 @@ const App = (): React.ReactElement => {
             <Route path="/experience" element={<Experience />} />
             <Route path="/after-party" element={<AfterParty />} />
             <Route path="/testimonials" element={<Testimonials />} />
+            <Route path="/apply" element={<Apply />} />
+            <Route path="/eventapplication/:applicationId" element={<EventApplication />} />
+            <Route path="/admin" element={<Admin />} />
+            <Route path="/admin/scanner" element={<QrScanner />} />
           </Routes>
         </Layout>
       </Router>

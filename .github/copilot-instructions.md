@@ -58,3 +58,7 @@ By following these instructions, Copilot should assist in maintaining an organiz
 - Before you commit do the following steps:
   - build the project and make sure there are no erros
   - run tests and make sure they are passing
+
+## Logging and testing
+- Make sure you use the created logger.ts to log your code execution vitals. Use emojis and color coding.
+- Make sure to write integration tests whenever writing or changing UI components or UX flow.
